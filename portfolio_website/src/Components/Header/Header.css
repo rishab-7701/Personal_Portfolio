@@ -1,10 +1,10 @@
 .header{
-    width: 60%;
-    height: 120vh;
+    width: 50%;
+    height: 100vh;
     background-image: url('../../../images/background-img.png');
     background-size: cover;
     background-position: center;
-    margin-top: 0%;
+    /* margin-top: 0%; */
     margin-left: 50%;
 }
 
@@ -16,7 +16,10 @@
     justify-content: space-between;
     gap: 60px;
     flex-wrap: nowrap;
-
+    margin-right: -20%;
+    margin-top: -5%;
+    opacity:0;
+    animation: slideTop 0.5s ease forwards;
 }
 
 .title{
@@ -27,11 +30,15 @@
     margin-right: 40%;
     color: #605e5e;
     width: 140px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards ;
 
 }
 
 .title span{
-    background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+    /* background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%); */
+    /* background: #ff004f; */
+    background: linear-gradient(267deg, #ff004f 0.36%, #5a2491 95.06%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -97,10 +104,27 @@ ul{
     margin-left: -26%;
 }
 
-ul a{
+ul li a{
     color: #fff;
     text-decoration: none;
     font-size: 18px;
+    position: relative;
+}
+
+ul li a::after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    /* background: #ff004f; */
+    background: linear-gradient(267deg, #ff004f 0.36%, #5a2491 95.06%);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+ul li a:hover::after{
+    width: 100%;
 }
 
 .nav-connect a{
@@ -109,8 +133,100 @@ ul a{
     font-size: 18px;
     padding: 10px 20px;
     border-radius: 60px;
-    background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+    /* background: linear-gradient(267deg, #ff004f 0.36%, #232224 95.06%); */
+    background: linear-gradient(267deg, #ff004f 0.36%, #5a2491 95.06%);
     font-size: 22px;
     cursor: pointer;
     transition: 0.5s;
+}
+
+.nav-connect:hover{
+    transform: scale(1.05);
+}
+
+.header-text{
+    margin-top: 40%;
+    margin-left: -120%;
+    margin-right: 120%;
+    font-size:40px;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.header-text p{
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.header-text h1{
+    font-size: 80px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.header-text h1 span{
+    /* color: #ff004f; */
+    background: linear-gradient(267deg, #ff004f 0.36%, #5a2491 95.06%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text {
+    font-family: 'Courier New', Courier, monospace; /* Example font */
+    font-weight: bold;
+    font-size: 2.2rem; /* Adjust size as needed */
+    color: #3498db; /* Example color */
+    /* background: linear-gradient(90deg, #f39c12, #e74c3c);  */
+    background: linear-gradient(267deg, #ff004f 0.36%, #5a2491 95.06%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; /* Hide text color */
+    padding: 0 5px; /* Padding around text */
+    border-radius: 5px; /* Rounded corners */
+    animation: glow 1.5s infinite; /* Apply glow animation */
+  }
+
+  @keyframes slideTop {
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideRight {
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideBottom {
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideLeft {
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
